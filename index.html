@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+  <title>Absen Sejahtera</title>
+  <link rel="icon" href="/assets/icon.png" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="hero card">
+      <img src="/assets/icon.png" class="logo" />
+      <div>
+        <h1>Absen <span>Sejahtera</span></h1>
+        <p>Absensi karyawan toko berbasis GPS, selfie, dan jam server.</p>
+      </div>
+      <div id="serverPill" class="pill pulse">Mengecek server...</div>
+    </section>
+
+    <section id="loginView" class="card view">
+      <h2>Login</h2>
+      <p class="muted">Owner: <b>Barokah</b>. Karyawan contoh: <b>rian01</b> / <b>123456</b></p>
+      <label>Username</label><input id="username" placeholder="Barokah / rian01" />
+      <label>Password</label><input id="password" type="password" placeholder="Password" />
+      <button onclick="login()">Masuk</button>
+      <p id="loginMsg" class="msg"></p>
+    </section>
+
+    <section id="employeeView" class="card view hidden">
+      <div class="row"><h2>Absen Masuk</h2><button class="ghost" onclick="logout()">Keluar</button></div>
+      <div class="grid2">
+        <div class="mini"><small>Jam Server</small><b id="serverTime">--:--</b></div>
+        <div class="mini"><small>Radius Toko</small><b id="radius">50 m</b></div>
+      </div>
+      <video id="video" autoplay playsinline muted></video>
+      <canvas id="canvas" class="hidden"></canvas>
+      <button onclick="checkin()">Ambil Selfie & Absen</button>
+      <button class="ghost" onclick="sendPermission()">Ajukan Izin/Sakit</button>
+      <p id="empMsg" class="msg"></p>
+    </section>
+
+    <section id="ownerView" class="card view hidden">
+      <div class="row"><h2>Dashboard Owner</h2><button class="ghost" onclick="logout()">Keluar</button></div>
+      <div class="grid4" id="summary"></div>
+      <h3>Siapa yang Pakai APK</h3><div id="devices" class="list"></div>
+      <h3>Absen Terbaru</h3><div id="recent" class="list"></div>
+      <h3>Tambah Karyawan</h3>
+      <div class="grid2"><input id="empName" placeholder="Nama"><input id="empUser" placeholder="Username"><input id="empPass" placeholder="Password"><input id="empRole" placeholder="Jabatan"></div>
+      <button onclick="addEmployee()">Tambah Akun</button>
+      <p id="ownerMsg" class="msg"></p>
+    </section>
+  </main>
+<script src="/app.js"></script>
+</body>
+</html>
